@@ -1,0 +1,47 @@
+# ======================================================================================
+#  Prop Hunt  -  /arcade reload after editing.  Colour codes use &.
+# ======================================================================================
+
+# false = nobody can join Prop Hunt arenas (they are skipped by matchmaking too).
+enabled: true
+
+# Player limits given to NEW arenas (change one arena later with /arcade setplayers <name> <min> <max>).
+default-min-players: 2
+default-max-players: 16
+
+# ---- timing ----
+hide-seconds: 30        # hiders hide, seekers are blind + frozen for this long
+seek-seconds: 300       # seekers have this long; hiders win when it runs out
+
+# One seeker for every N players (always at least one).
+players-per-seeker: 5
+
+seeker:
+  item: IRON_SWORD
+  item-name: "&cSeeker Blade"
+  blind-while-waiting: true     # blindness while the hiders hide
+  freeze-while-waiting: true    # can't move while the hiders hide
+
+hider:
+  # The item hiders right-click a block with to copy it.
+  changer-item: NETHER_STAR
+  changer-name: "&bDisguise Changer"
+  changer-lore:
+    - "&7Right-click a solid block"
+    - "&7to turn into it."
+
+# Blocks a hider can randomly START as (one is picked per hider).
+# Use block names like OAK_LOG, CHEST, DIAMOND_BLOCK. Empty = built-in list.
+start-blocks: []
+
+# Blocks hiders may turn into with the Disguise Changer (right-click a block).
+# Empty = any solid full block. If you list blocks here, ONLY these can be used.
+allowed-blocks: []
+
+# Height of the disguise block (in blocks) for JAVA players. 0.0 = sitting exactly on the ground.
+block-y-offset: 0.0
+# Same for BEDROCK players (Geyser draws it half a block higher, so -0.5 lines it up).
+# Bedrock players are detected through Floodgate or Geyser. If you change a value: restart and test.
+bedrock-block-y-offset: -0.5
+# Backup detection: names starting with this are Bedrock (Floodgate's default prefix is "."). Empty = off.
+bedrock-name-prefix: "."

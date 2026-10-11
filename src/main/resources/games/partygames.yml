@@ -1,0 +1,47 @@
+# ======================================================================================
+#  Party Games  -  /arcade reload after editing.
+#  A series of short mini-games; points are given by survival order, highest total wins.
+# ======================================================================================
+
+enabled: true
+default-min-players: 2
+default-max-players: 16
+
+intro-seconds: 5          # countdown before each mini-game
+break-seconds: 4          # pause after each mini-game
+survivor-bonus: 3         # extra points for everyone who survives a round
+random-order: true        # false = always the order listed under "minigames"
+
+# Falling hazards (Anvil Rain, Bombardment) get harder over time.
+difficulty:
+  interval-step-seconds: 10        # every N seconds hazards fall a little faster
+  extra-hazard-every-seconds: 15   # every N seconds one more hazard falls per drop
+
+minigames:
+  anvil-rain:
+    enabled: true
+    title: "Anvil Rain"
+    description: "Dodge the falling anvils!"
+    seconds: 45
+    start-interval-ticks: 14   # ticks between drops at the start (20 ticks = 1 second)
+    min-interval-ticks: 3      # fastest it ever gets
+  bombardment:
+    enabled: true
+    title: "Bombardment"
+    description: "Dodge the falling TNT!"
+    seconds: 45
+    start-interval-ticks: 16
+    min-interval-ticks: 4
+    fuse-ticks: 45
+  sumo:
+    enabled: true
+    title: "Sumo"
+    description: "Knock everyone off the platform!"
+    seconds: 90
+    item-name: "&eKnockback Stick"
+  spleef:
+    enabled: true
+    title: "Spleef"
+    description: "Break the snow under your rivals!"
+    seconds: 90
+    item-name: "&bSnow Digger"
